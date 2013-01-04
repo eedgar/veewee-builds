@@ -3,5 +3,8 @@ rvm_gemset_create_on_use_flag=1
 # switch to default ruby version when exiting directory
 rvm_project_rvmrc_default=1
 
+# install the specific ruby if it does not already exist
+rvm_install_on_use_flag=1
+
 # use ruby 1.9.2 with a specific gemset
-rvm ruby-1.9.2-p320@veewee
+rvm ruby-1.9.3-p194@veewee

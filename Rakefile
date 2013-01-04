@@ -37,12 +37,23 @@ namespace :box do
             end
         end  
     end  
+
+    namespace :rm do
+        @baseboxes.each do |box|
+            desc "rm basebox '#{box}' from vagrant"
+            task box.to_s => "#{box}.box" do
+                sh %{vagrant box remove #{box}} do | ok, res |
+                end
+            end
+        end  
+    end  
+
 end
 
 namespace :build do
     @baseboxes.each do |box|
         file "#{box}.box" do
-            sh "#{@bb} build #{box}"
+            sh "#{@bb} build #{box} --force"
             sh "#{@bb} validate #{box}"
             sh "#{@bb} export #{box}"
         end
